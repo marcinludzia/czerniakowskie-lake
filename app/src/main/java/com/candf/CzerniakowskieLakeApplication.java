@@ -3,14 +3,18 @@
  */
 package com.candf;
 
-public class CzerniakowskieLakeApplication {
-    public String getGreeting() {
+import com.candf.controller.RecommendationController;
 
-        return "Hello World!";
-    }
+import io.javalin.Javalin;
+
+public class CzerniakowskieLakeApplication {
 
     public static void main(String[] args) {
+        Configuration conf = new Configuration();
+        RecommendationController controller = new RecommendationController(conf.getClothingRecommendation(),
+                                                                           conf.getWeatherClient());
+        Javalin application = conf.getApplication().start(8800);
 
-        System.out.println(new CzerniakowskieLakeApplication().getGreeting());
+        application.get("recommendation/{location}", controller::getClothingRecommendation);
     }
 }

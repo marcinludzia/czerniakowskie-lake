@@ -1,4 +1,6 @@
 package com.candf.model;
 
-public class WeatherInformation {
-}
+public record WeatherInformation(
+        double temperature,
+        double humidity)
+{}

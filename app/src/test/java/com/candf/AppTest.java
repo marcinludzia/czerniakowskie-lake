@@ -4,11 +4,8 @@
 package com.candf;
 
 import org.testng.annotations.*;
-import static org.testng.Assert.*;
 
 public class AppTest {
     @Test public void appHasAGreeting() {
-        CzerniakowskieLakeApplication classUnderTest = new CzerniakowskieLakeApplication();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
     }
 }
