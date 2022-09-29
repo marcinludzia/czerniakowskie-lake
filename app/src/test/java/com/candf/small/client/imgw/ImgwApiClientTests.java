@@ -1,15 +1,10 @@
-package com.candf.client.imgw;
+package com.candf.small.client.imgw;
 
-import com.candf.client.HttpClientMock;
 import com.candf.client.IHttpClient;
+import com.candf.client.imgw.ImgwWeatherInformationApiClient;
 import org.testng.annotations.Test;
-import static org.mockito.Mockito.*;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 
 public class ImgwApiClientTests {
 

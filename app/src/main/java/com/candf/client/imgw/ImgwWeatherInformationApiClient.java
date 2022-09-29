@@ -11,9 +11,7 @@ import java.util.Optional;
 public class ImgwWeatherInformationApiClient implements IWeatherInformationClient {
 
     private final IHttpClient apiClient;
-
     private final String BASE_URL = "https://danepubliczne.imgw.pl/api/data/synop/station/";
-    private final int OK = 200;
     private final String EMPTY_STRING = "";
 
     public ImgwWeatherInformationApiClient(IHttpClient apiClient) {
@@ -49,26 +47,11 @@ public class ImgwWeatherInformationApiClient implements IWeatherInformationClien
     }
 
     private String getWeatherInformationResponse(String targetUrl) {
-//        HttpResponse<String> response;
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .version(HttpClient.Version.HTTP_1_1)
-//                .timeout(Duration.ofSeconds(30))
-//                .uri(URI.create(targetUrl))
-//                .GET()
-//                .build();
-//
-//        try {
-//            response = client.send(request, HttpResponse.BodyHandlers.ofString());
-//        } catch (IOException | InterruptedException e) {
-//            System.out.println(e.getMessage());
-//            return EMPTY_STRING;
-//        }
-//
-//        return response.statusCode() == OK ? response.body() : EMPTY_STRING;
         return apiClient.getResponse(targetUrl);
     }
 
     private String createTargetUrl(String localization) {
         return BASE_URL + localization;
     }
+
 }
