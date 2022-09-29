@@ -15,6 +15,16 @@ public class CzerniakowskieLakeApplication {
                                                                            conf.getWeatherClient());
         Javalin application = conf.getApplication().start(8800);
 
-        application.get("recommendation/{location}", controller::getClothingRecommendation);
+        //application.get("recommendation/{location}", controller::getClothingRecommendation);
+        application.get("recommendation/{location}", ctx -> {
+            var location = ctx.pathParam("location");
+            var result = controller.getClothingRecommendation(location);
+            if (!result.equals("")) {
+                ctx.status(200).result(result);
+            }
+            else {
+                ctx.status(400).result("Nie można było ustalić rekomendacji");
+            }
+        });
     }
 }

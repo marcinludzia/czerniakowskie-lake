@@ -2,12 +2,12 @@ package com.candf.controller;
 
 import com.candf.client.IWeatherInformationClient;
 import com.candf.service.IClothingRecommendation;
-import io.javalin.http.Context;
 
 public class RecommendationController {
 
-    IClothingRecommendation clothingRecommendation;
-    IWeatherInformationClient weatherInformationClient;
+    private final IClothingRecommendation clothingRecommendation;
+    private final IWeatherInformationClient weatherInformationClient;
+    private final String EMPTY_STRING = "";
 
     public RecommendationController(IClothingRecommendation clothingRecommendation,
                                     IWeatherInformationClient imgwWeatherInformationClient) {
@@ -15,15 +15,26 @@ public class RecommendationController {
         this.weatherInformationClient = imgwWeatherInformationClient;
     }
 
-    public void getClothingRecommendation(Context ctx) {
-        String location = ctx.pathParam("location");
+//    public Context getClothingRecommendation(Context ctx) {
+//        String location = ctx.pathParam("location");
+//        var weatherInformation = weatherInformationClient.getWeatherInformation(location);
+//        if (weatherInformation.isEmpty()) {
+//            ctx.status(400).result("Nie można było ustalić rekomendacji");
+//        }
+//        var cloths = clothingRecommendation.recommendOnClothing(weatherInformation.get());
+//        var sunGlasses = clothingRecommendation.recommendOnSunGlasses(weatherInformation.get());
+//
+//        return ctx.status(200).result(cloths + "\n" + sunGlasses);
+//    }
+
+    public String getClothingRecommendation(String location) {
         var weatherInformation = weatherInformationClient.getWeatherInformation(location);
         if (weatherInformation.isEmpty()) {
-            ctx.status(400).result("Nie można było ustalić rekomendacji");
+            return EMPTY_STRING;
         }
         var cloths = clothingRecommendation.recommendOnClothing(weatherInformation.get());
         var sunGlasses = clothingRecommendation.recommendOnSunGlasses(weatherInformation.get());
 
-        ctx.status(200).result(cloths + "\n" + sunGlasses);
+        return cloths + "\n" + sunGlasses;
     }
 }
