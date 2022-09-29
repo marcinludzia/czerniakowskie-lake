@@ -1,28 +1,23 @@
 package com.candf.client.imgw;
 
+import com.candf.client.IHttpClient;
 import com.candf.client.IWeatherInformationClient;
 import com.candf.model.WeatherInformation;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.time.Duration;
 import java.util.Optional;
 
 public class ImgwWeatherInformationApiClient implements IWeatherInformationClient {
 
-    private final HttpClient client;
+    private final IHttpClient apiClient;
 
     private final String BASE_URL = "https://danepubliczne.imgw.pl/api/data/synop/station/";
     private final int OK = 200;
     private final String EMPTY_STRING = "";
 
-    public ImgwWeatherInformationApiClient(HttpClient client) {
-        this.client = client;
+    public ImgwWeatherInformationApiClient(IHttpClient apiClient) {
+        this.apiClient = apiClient;
     }
 
     @Override
@@ -54,22 +49,23 @@ public class ImgwWeatherInformationApiClient implements IWeatherInformationClien
     }
 
     private String getWeatherInformationResponse(String targetUrl) {
-        HttpResponse<String> response;
-        HttpRequest request = HttpRequest.newBuilder()
-                .version(HttpClient.Version.HTTP_1_1)
-                .timeout(Duration.ofSeconds(30))
-                .uri(URI.create(targetUrl))
-                .GET()
-                .build();
-
-        try {
-            response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException | InterruptedException e) {
-            System.out.println(e.getMessage());
-            return EMPTY_STRING;
-        }
-
-        return response.statusCode() == OK ? response.body() : EMPTY_STRING;
+//        HttpResponse<String> response;
+//        HttpRequest request = HttpRequest.newBuilder()
+//                .version(HttpClient.Version.HTTP_1_1)
+//                .timeout(Duration.ofSeconds(30))
+//                .uri(URI.create(targetUrl))
+//                .GET()
+//                .build();
+//
+//        try {
+//            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+//        } catch (IOException | InterruptedException e) {
+//            System.out.println(e.getMessage());
+//            return EMPTY_STRING;
+//        }
+//
+//        return response.statusCode() == OK ? response.body() : EMPTY_STRING;
+        return apiClient.getResponse(targetUrl);
     }
 
     private String createTargetUrl(String localization) {

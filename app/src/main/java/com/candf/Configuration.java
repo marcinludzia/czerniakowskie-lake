@@ -1,5 +1,7 @@
 package com.candf;
 
+import com.candf.client.HttpClientWrapper;
+import com.candf.client.IHttpClient;
 import com.candf.client.IWeatherInformationClient;
 import com.candf.client.imgw.ImgwWeatherInformationApiClient;
 import com.candf.service.ClothingRecommendationService;
@@ -15,7 +17,9 @@ public class Configuration {
             .connectTimeout(Duration.ofSeconds(30))
             .followRedirects(HttpClient.Redirect.NORMAL)
             .build();
-    private final IWeatherInformationClient weatherClient = new ImgwWeatherInformationApiClient(httpClient);
+
+    private final IHttpClient apiClient = new HttpClientWrapper();
+    private final IWeatherInformationClient weatherClient = new ImgwWeatherInformationApiClient(apiClient);
     private final IClothingRecommendation clothingRecommendation = new ClothingRecommendationService();
     private final Javalin application = Javalin.create();
 
