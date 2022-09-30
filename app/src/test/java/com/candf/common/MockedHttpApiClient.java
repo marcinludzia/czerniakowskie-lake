@@ -8,7 +8,7 @@ public class MockedHttpApiClient implements IHttpClient {
         return """
                 {
                     "id_stacji":"12500",
-                    "stacja":"Jelenia G\\u00f3ra",
+                    "stacja":"Warszawa",
                     "data_pomiaru":"2022-09-29",
                     "godzina_pomiaru":"16"
                     ,"temperatura":"10.8",

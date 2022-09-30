@@ -14,7 +14,16 @@ public class ImgwWeatherInformation {
     @SerializedName("suma_opadu") private String sumOfFall;
     @SerializedName("cisnienie") private String atmosphericPressure;
 
-    public ImgwWeatherInformation(String stationId, String weatherStation, String date, String hour, String temperature, String windSpeed, String windDirection, String humidity, String sumOfFall, String atmosphericPressure) {
+    public ImgwWeatherInformation(String stationId,
+                                  String weatherStation,
+                                  String date,
+                                  String hour,
+                                  String temperature,
+                                  String windSpeed,
+                                  String windDirection,
+                                  String humidity,
+                                  String sumOfFall,
+                                  String atmosphericPressure) {
         this.stationId = stationId;
         this.weatherStation = weatherStation;
         this.date = date;
