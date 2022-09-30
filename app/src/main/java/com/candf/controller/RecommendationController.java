@@ -15,18 +15,6 @@ public class RecommendationController {
         this.weatherInformationClient = imgwWeatherInformationClient;
     }
 
-//    public Context getClothingRecommendation(Context ctx) {
-//        String location = ctx.pathParam("location");
-//        var weatherInformation = weatherInformationClient.getWeatherInformation(location);
-//        if (weatherInformation.isEmpty()) {
-//            ctx.status(400).result("Nie można było ustalić rekomendacji");
-//        }
-//        var cloths = clothingRecommendation.recommendOnClothing(weatherInformation.get());
-//        var sunGlasses = clothingRecommendation.recommendOnSunGlasses(weatherInformation.get());
-//
-//        return ctx.status(200).result(cloths + "\n" + sunGlasses);
-//    }
-
     public String getClothingRecommendation(String location) {
         var weatherInformation = weatherInformationClient.getWeatherInformation(location);
         if (weatherInformation.isEmpty()) {
