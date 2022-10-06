@@ -9,8 +9,12 @@ rm /home/marcin/applications/czerniakowskie-lake/app.zip
 cp /home/marcin/actions-runner/_work/czerniakowskie-lake/czerniakowskie-lake/app/build/distributions/app.zip /home/marcin/applications/czerniakowskie-lake/
 cd /home/marcin/applications/czerniakowskie-lake/ && unzip app.zip
 
-# running the application
+# stopping currently running application
+echo "Stopping the czerniakowskie-lake app..."
+_old_pid = "/home/marcin/applications/czerniakowskie-lake/pid.pid"
+kill ${_old_pid}
 
+# running the application
 echo "Starting Linux/Unix czerniakowskie-lake app..."
 cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
 _pid=$!
