@@ -38,5 +38,5 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Execute start script
-        run: RUNNER_TRACKING_ID="" && forever (cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &)
+        run: RUNNER_TRACKING_ID="" && forever cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
 
