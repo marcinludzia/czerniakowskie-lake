@@ -14,8 +14,8 @@ public class CzerniakowskieLakeApplication {
         RecommendationController controller = new RecommendationController(conf.getClothingRecommendation(),
                                                                            conf.getWeatherClient());
         Javalin application = conf.getApplication().start(8800);
+        printBaner();
 
-        //application.get("recommendation/{location}", controller::getClothingRecommendation);
         application.get("api/recommendation/{location}", ctx -> {
             var location = ctx.pathParam("location");
             var result = controller.getClothingRecommendation(location);
@@ -29,5 +29,17 @@ public class CzerniakowskieLakeApplication {
                            + "</h1></body></html>");
             }
         });
+    }
+
+    private static void printBaner() {
+        System.out.println("""                  
+                                
+                   ___                 _      _                 _   _       _         _      \s
+                  / __|______ _ _ _ _ (_)__ _| |_______ __ ____| |_(_)___  | |   __ _| |_____\s
+                 | (__|_ / -_) '_| ' \\| / _` | / / _ \\ V  V (_-< / / / -_) | |__/ _` | / / -_)
+                  \\___/__\\___|_| |_||_|_\\__,_|_\\_\\___/\\_/\\_//__/_\\_\\_\\___| |____\\__,_|_\\_\\___|
+                                                                                             \s
+                              
+                """);
     }
 }
