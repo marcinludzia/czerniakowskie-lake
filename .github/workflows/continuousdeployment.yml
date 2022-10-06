@@ -36,9 +36,7 @@ jobs:
   start:
     needs: install
     runs-on: self-hosted
-    with:
-      start: cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
-#   steps:
-#      - name: Execute start script
-#        run: cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
+    steps:
+      - name: Execute start script
+        run: RUNNER_TRACKING_ID="" && forever /home/marcin/applications/czerniakowskie-lake/app/bin/app &
 
