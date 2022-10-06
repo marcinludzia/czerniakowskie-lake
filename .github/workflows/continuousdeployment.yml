@@ -25,6 +25,7 @@ jobs:
       run: gradle build
 
   install:
+    needs: build
     runs-on: self-hosted
     steps:
       - name: Add permissions
