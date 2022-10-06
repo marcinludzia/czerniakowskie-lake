@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # remove old version
 rm -R /home/marcin/applications/czerniakowskie-lake/app/bin
 rm -R /home/marcin/applications/czerniakowskie-lake/app/lib
@@ -8,4 +10,9 @@ cp /home/marcin/actions-runner/_work/czerniakowskie-lake/czerniakowskie-lake/app
 cd /home/marcin/applications/czerniakowskie-lake/ && unzip app.zip
 
 # running the application
-cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app
+
+echo "Starting Linux/Unix czerniakowskie-lake app..."
+cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
+_pid=$!
+echo "$_pid" > /home/marcin/applications/czerniakowskie-lake/pid.pid
+echo "Pid $_pid stored in /var/run/awesome-app.pid"
