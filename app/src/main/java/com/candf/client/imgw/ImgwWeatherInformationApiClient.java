@@ -27,8 +27,10 @@ public class ImgwWeatherInformationApiClient implements IWeatherInformationClien
         }
         ImgwWeatherInformation imgwWeatherInformation = deserializeResponseBody(responseBody);
 
-        return Optional.of(new WeatherInformation(Double.parseDouble(imgwWeatherInformation.getTemperature()),
-                                                  Double.parseDouble(imgwWeatherInformation.getHumidity())));
+        return imgwWeatherInformation != null
+                ? Optional.of(new WeatherInformation(Double.parseDouble(imgwWeatherInformation.getTemperature()),
+                                                     Double.parseDouble(imgwWeatherInformation.getHumidity())))
+                : Optional.empty();
     }
 
     private ImgwWeatherInformation deserializeResponseBody(String responseBody) {
@@ -39,8 +41,7 @@ public class ImgwWeatherInformationApiClient implements IWeatherInformationClien
         }
         catch (JsonSyntaxException exception) {
             System.out.println(exception.getMessage());
-            return new ImgwWeatherInformation("n/a", "n/a", "n/a", "n/a", "n/a", "n/a",
-                    "n/a", "n/a", "n/a", "n/a");
+            return null;
         }
 
         return imgwWeatherInformation;

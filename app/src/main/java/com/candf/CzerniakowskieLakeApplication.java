@@ -23,7 +23,10 @@ public class CzerniakowskieLakeApplication {
                 ctx.status(200).html(result);
             }
             else {
-                ctx.status(400).result("Nie można było ustalić rekomendacji");
+                ctx.status(400)
+                   .html("<!DOCTYPE html><html><head><meta charset=\"utf-8\"></head><body><h1>"
+                           + "Nie można było ustalić rekomendacji."
+                           + "</h1></body></html>");
             }
         });
     }
