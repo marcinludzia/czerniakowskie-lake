@@ -12,6 +12,9 @@ plugins {
     id 'java'
 }
 
+applicationDefaultJvmArgs = ["-D\"file.encoding\"=\"UTF-8\""]
+applicationDefaultJvmArgs = ["-D\"sun.jnu.encoding\"=\"UTF-8\""]
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -36,4 +39,10 @@ application {
 tasks.named('test') {
     // Use TestNG for unit tests.
     useTestNG()
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
 }

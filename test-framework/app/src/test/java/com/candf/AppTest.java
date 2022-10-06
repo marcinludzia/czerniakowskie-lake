@@ -16,16 +16,6 @@ import java.time.Duration;
 import static org.testng.Assert.*;
 
 public class AppTest {
-    private HttpClient client;
-
-    @BeforeClass
-    public void setUp() {
-        HttpClient client = HttpClient.newBuilder()
-                .version(HttpClient.Version.HTTP_1_1)
-                .connectTimeout(Duration.ofSeconds(30))
-                .followRedirects(HttpClient.Redirect.NORMAL)
-                .build();
-    }
 
     @Test
     public void simpleApiTest() throws IOException, InterruptedException {

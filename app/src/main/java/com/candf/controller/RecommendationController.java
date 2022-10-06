@@ -23,6 +23,7 @@ public class RecommendationController {
         var cloths = clothingRecommendation.recommendOnClothing(weatherInformation.get());
         var sunGlasses = clothingRecommendation.recommendOnSunGlasses(weatherInformation.get());
 
-        return cloths + "\n" + sunGlasses;
+        return "<!DOCTYPE html><html><head><meta charset=\"utf-8\"></head><body><h1>" + cloths + "\n" + sunGlasses + "</h1></body></html>";
+
     }
 }

@@ -20,7 +20,7 @@ public class CzerniakowskieLakeApplication {
             var location = ctx.pathParam("location");
             var result = controller.getClothingRecommendation(location);
             if (!result.equals("")) {
-                ctx.status(200).result(result);
+                ctx.status(200).html(result);
             }
             else {
                 ctx.status(400).result("Nie można było ustalić rekomendacji");
