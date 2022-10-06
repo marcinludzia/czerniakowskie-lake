@@ -32,3 +32,10 @@ jobs:
         run: chmod +x /home/marcin/actions-runner/_work/czerniakowskie-lake/czerniakowskie-lake/scripts/install_on_test.sh
       - name: Run installation script
         run: cd /home/marcin/actions-runner/_work/czerniakowskie-lake/czerniakowskie-lake/scripts && ./install_on_test.sh
+
+  start:
+    needs: install
+    runs-on: self-hosted
+    steps:
+      - name: Execute start script
+        run: cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &

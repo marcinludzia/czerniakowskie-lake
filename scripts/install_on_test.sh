@@ -14,6 +14,6 @@ cp /home/marcin/actions-runner/_work/czerniakowskie-lake/czerniakowskie-lake/app
 cd /home/marcin/applications/czerniakowskie-lake/ && unzip app.zip
 
 # running the application
-echo "Starting czerniakowskie-lake app..."
-cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
-echo $!
+#echo "Starting czerniakowskie-lake app..."
+#cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
+#echo $!
