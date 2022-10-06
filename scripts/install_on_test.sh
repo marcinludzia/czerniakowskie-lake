@@ -15,4 +15,4 @@ kill $(ps -ef | grep '/home/marcin/applications/czerniakowskie-lake/app/lib/app.
 
 # running the application
 echo "Starting czerniakowskie-lake app..."
-cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app
+cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
