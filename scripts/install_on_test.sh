@@ -11,12 +11,8 @@ cd /home/marcin/applications/czerniakowskie-lake/ && unzip app.zip
 
 # stopping currently running application
 echo "Stopping the czerniakowskie-lake app..."
-_old_pid = "/home/marcin/applications/czerniakowskie-lake/pid.pid"
-kill ${_old_pid}
+kill $(ps -ef | grep '/home/marcin/applications/czerniakowskie-lake/app/lib/app.jar' | grep -v 'grep' | awk '{printf $2}')
 
 # running the application
-echo "Starting Linux/Unix czerniakowskie-lake app..."
+echo "Starting czerniakowskie-lake app..."
 cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
-_pid=$!
-echo "$_pid" > /home/marcin/applications/czerniakowskie-lake/pid.pid
-echo "Pid $_pid stored in /var/run/awesome-app.pid"
