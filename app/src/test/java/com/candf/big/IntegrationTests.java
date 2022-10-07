@@ -3,7 +3,7 @@ package com.candf.big;
 import com.candf.client.imgw.ImgwWeatherInformationApiClient;
 import com.candf.common.MocksFactory;
 import com.candf.controller.RecommendationController;
-import com.candf.service.ClothingRecommendationService;
+import com.candf.core.service.ClothingRecommendationService;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

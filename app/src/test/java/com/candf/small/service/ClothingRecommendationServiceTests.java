@@ -1,7 +1,7 @@
 package com.candf.small.service;
 
-import com.candf.model.WeatherInformation;
-import com.candf.service.ClothingRecommendationService;
+import com.candf.core.model.WeatherInformation;
+import com.candf.core.service.ClothingRecommendationService;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;

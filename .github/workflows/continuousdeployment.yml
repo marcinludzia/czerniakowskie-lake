@@ -40,3 +40,6 @@ jobs:
       - name: Execute start script
         run: RUNNER_TRACKING_ID="" && cd /home/marcin/applications/czerniakowskie-lake/app/bin && ./app &
 
+  e2e_tests:
+    needs: start
+

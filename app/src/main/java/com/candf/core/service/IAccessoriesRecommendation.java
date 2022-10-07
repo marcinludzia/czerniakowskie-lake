@@ -1,6 +1,6 @@
-package com.candf.service;
+package com.candf.core.service;
 
-import com.candf.model.WeatherInformation;
+import com.candf.core.model.WeatherInformation;
 
 public interface IAccessoriesRecommendation {
     String recommendOnUmbrella(WeatherInformation information);

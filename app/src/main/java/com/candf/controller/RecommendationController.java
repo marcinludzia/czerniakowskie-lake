@@ -1,7 +1,7 @@
 package com.candf.controller;
 
 import com.candf.client.IWeatherInformationClient;
-import com.candf.service.IClothingRecommendation;
+import com.candf.core.service.IClothingRecommendation;
 
 public class RecommendationController {
 

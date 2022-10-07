@@ -2,7 +2,7 @@ package com.candf.client.imgw;
 
 import com.candf.client.IHttpClient;
 import com.candf.client.IWeatherInformationClient;
-import com.candf.model.WeatherInformation;
+import com.candf.core.model.WeatherInformation;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 

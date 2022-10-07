@@ -1,6 +1,6 @@
 package com.candf.client;
 
-import com.candf.model.WeatherInformation;
+import com.candf.core.model.WeatherInformation;
 import java.util.Optional;
 
 public interface IWeatherInformationClient {

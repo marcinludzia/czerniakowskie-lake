@@ -1,8 +1,6 @@
-package com.candf.service;
+package com.candf.core.service;
 
-import com.candf.model.WeatherInformation;
-
-import java.io.UnsupportedEncodingException;
+import com.candf.core.model.WeatherInformation;
 
 public interface IClothingRecommendation {
     String recommendOnClothing(WeatherInformation information);
