@@ -42,4 +42,10 @@ jobs:
 
   e2e_tests:
     needs: start
+    runs-on: self-hosted
+    steps:
+      - name: Add pemissions to e2e script
+        run: chmod +x /home/marcin/actions-runner/_work/czerniakowskie-lake/czerniakowskie-lake/scripts/e2e_tests.sh
+      - name: Run end-to-end tests
+        run: cd /home/marcin/actions-runner/_work/czerniakowskie-lake/czerniakowskie-lake/scripts && ./e2e_tests.sh
 
