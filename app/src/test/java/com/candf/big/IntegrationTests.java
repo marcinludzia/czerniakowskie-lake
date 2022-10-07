@@ -19,5 +19,6 @@ public class IntegrationTests {
         var result = controller.getClothingRecommendation("warszawa");
 
         Assert.assertTrue(result.contains("Ubierz bluzę."));
+        Assert.assertTrue(result.contains("Obecnie jest 10.8 st.C."));
     }
 }

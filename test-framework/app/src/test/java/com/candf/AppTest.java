@@ -35,5 +35,6 @@ public class AppTest {
 
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertTrue(response.body().contains("Ubierz"));
+        Assert.assertTrue(response.body().contains("Obecnie jest"));
     }
 }

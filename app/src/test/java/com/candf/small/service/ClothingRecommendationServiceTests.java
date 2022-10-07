@@ -19,12 +19,12 @@ public class ClothingRecommendationServiceTests {
     @DataProvider(name = "weather_information")
     public Object[][] serveWeatherInformation() {
         return new Object[][] {
-                {0.0, 0.0, "Ubierz kurtkę wiosenną.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."},
-                {-10.0, 20.0, "Ubierz ciepłą kurtkę, czapkę i rękawiczki.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."},
-                {12.1, 40.5, "Ubierz bluzę.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."},
-                {17.0, 55.2, "Ubierz bluzę.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."},
-                {33.9, 24.9, "Ubierz krótkie spodenki i koszulkę. Jest gorąco!", "Zabierz ze sobą okulary przeciwsloneczne!"},
-                {18.3, 98.8, "Ubierz bluzę.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."}
+                {0.0, 0.0, "Ubierz kurtkę wiosenną. Obecnie jest 0.0 st.C.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."},
+                {-10.0, 20.0, "Ubierz ciepłą kurtkę, czapkę i rękawiczki. Obecnie jest -10.0 st.C.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."},
+                {12.1, 40.5, "Ubierz bluzę. Obecnie jest 12.1 st.C.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."},
+                {17.0, 55.2, "Ubierz bluzę. Obecnie jest 17.0 st.C.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."},
+                {33.9, 24.9, "Ubierz krótkie spodenki i koszulkę. Jest gorąco! Obecnie jest 33.9 st.C.", "Zabierz ze sobą okulary przeciwsloneczne!"},
+                {18.3, 98.8, "Ubierz bluzę. Obecnie jest 18.3 st.C.", "Nie musisz zabierać ze sobą okularów przeciwsłonecznych."}
         };
     }
 
